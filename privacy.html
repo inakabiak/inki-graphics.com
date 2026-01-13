@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Polityka prywatności — Inki Graphics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+</head>
+
+<body data-page="privacy">
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand-mini" href="index.html" aria-label="Inki Graphics">
+        <span class="brand-mini__mark" aria-hidden="true"></span>
+        <span class="brand-mini__text">INKI GRAPHICS</span>
+      </a>
+
+      <nav class="nav" aria-label="Nawigacja">
+        <a href="index.html#portfolio" data-nav="nav_portfolio"></a>
+        <a href="index.html#pricing" data-nav="nav_pricing"></a>
+        <a href="index.html#contact" data-nav="nav_contact"></a>
+      </nav>
+
+      <div class="lang-switch">
+        <span class="lang-pill">PL / EN</span>
+        <button class="lang-btn" id="langBtn" type="button">LANG</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="card hero__left">
+        <h1 class="h1" style="margin-bottom:6px" data-legal-title>Polityka prywatności</h1>
+
+        <div id="legalContent"></div>
+
+        <div class="legal-links" style="margin-top:18px">
+          <a href="index.html">← Home</a>
+          <a href="cookies.html" data-i18n="legal_cookies"></a>
+          <a href="terms.html" data-i18n="legal_terms"></a>
+          <a href="#" data-open-cookie-settings data-i18n="footer_cookie_settings"></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Cookie banner + settings modal (same as index) -->
+<!-- Cookie Banner -->
+  <div class="cookie" id="cookieBanner" aria-live="polite">
+    <div class="cookie__panel">
+      <div class="cookie__row">
+        <div>
+          <p class="cookie__title" data-cookie-title></p>
+          <p class="cookie__text" data-cookie-text></p>
+        </div>
+        <div class="cookie__actions">
+          <button class="btn btn-primary" id="cookieAccept" type="button" data-cookie-accept></button>
+          <button class="btn btn-ghost" id="cookieNecessary" type="button" data-cookie-necessary></button>
+          <button class="btn btn-ghost" id="cookieSettings" type="button" data-cookie-settings></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cookieSettingsModal" data-modal aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__panel" role="document">
+      <div class="modal__head">
+        <div class="modal__title" data-cookie-settings-title></div>
+        <button class="modal__close" id="cookieSettingsClose" type="button" data-i18n="modal_close"></button>
+      </div>
+      <div class="modal__body">
+        <div class="toggles">
+          <div class="toggle">
+            <div>
+              <div data-toggle-necessary-label></div>
+              <small data-toggle-necessary-desc></small>
+            </div>
+            <div class="switch">
+              <input type="checkbox" checked disabled />
+            </div>
+          </div>
+
+          <div class="toggle">
+            <div>
+              <div data-toggle-analytics-label></div>
+              <small data-toggle-analytics-desc></small>
+            </div>
+            <div class="switch">
+              <input id="toggleAnalytics" type="checkbox" />
+            </div>
+          </div>
+
+          <div class="toggle">
+            <div>
+              <div data-toggle-marketing-label></div>
+              <small data-toggle-marketing-desc></small>
+            </div>
+            <div class="switch">
+              <input id="toggleMarketing" type="checkbox" />
+            </div>
+          </div>
+        </div>
+
+        <hr class="sep">
+        <button class="btn btn-primary" id="cookieSaveBtn" type="button" data-cookie-save></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Minimal PL+EN legal content (rendered by JS depending on language)
+    const legal = {
+      pl: `
+        <h2 class="h2">Informacje ogólne</h2>
+        <p class="p">Niniejsza Polityka prywatności określa zasady przetwarzania danych osobowych użytkowników strony internetowej inki-graphics.com.</p>
+        <p class="p">Administratorem danych osobowych jest:</p>
+        <p class="p"><strong>Ina Kabiak - Inki Graphics</strong></p>
+        <p class="p">Jednoosobowa działalność gospodarcza zarejestrowana w Polsce</p>
+        <p class="p"><strong>E-mail kontaktowy:</strong> contact@inki-graphics.com</p>
+        <p class="p">Administrator przetwarza dane osobowe zgodnie z obowiązującymi przepisami prawa, w szczególności z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO).</p>
+
+        <h2 class="h2">Zakres przetwarzanych danych</h2>
+        <p class="p">
+          Administrator może przetwarzać następujące dane osobowe:
+        </p>
+        <ul class="bullets">
+          <li><span class="dot"></span><span>imię i nazwisko (jeżeli podane),</span></li>
+          <li><span class="dot"></span><span>adres e-mail</span></li>
+          <li><span class="dot"></span><span>treść wiadomości przesłanej przez formularz kontaktowy lub e-mail,</span></li>
+          <li><span class="dot"></span><span>adres IP,</span></li>
+          <li><span class="dot"></span><span>dane zawarte w plikach cookies,</span></li>
+          <li><span class="dot"></span><span>dane techniczne dotyczące urządzenia i przeglądarki.</span></li>
+        </ul>
+        <p class="p"> Podanie danych jest dobrowolne, lecz niezbędne do kontaktu lub realizacji zapytania.</p>
+        
+        <h2 class="h2">Cele przetwarzania danych</h2>
+        <p class="p">
+          Dane osobowe przetwarzane są w następujących celach:
+        </p>
+        <ul class="bullets">
+          <li><span class="dot"></span><span>udzielenia odpowiedzi na zapytania przesłane przez użytkownika,</span></li>
+          <li><span class="dot"></span><span>realizacji współpracy lub umowy,</span></li>
+          <li><span class="dot"></span><span>prowadzenia korespondencji,</span></li>
+          <li><span class="dot"></span><span>analizy statystyk strony internetowej,</span></li>
+          <li><span class="dot"></span><span>zapewnienia prawidłowego funkcjonowania strony,</span></li>
+          <li><span class="dot"></span><span>realizacji obowiązków prawnych (np. księgowych).</span></li>
+        </ul>
+
+        <h2 class="h2">Podstawa prawna przetwarzania danych</h2>
+        <p class="p">
+          Dane osobowe przetwarzane są na podstawie:
+        </p>
+        <ul class="bullets">
+          <li><span class="dot"></span><span>art. 6 ust. 1 lit. a RODO – zgoda użytkownika,</span></li>
+          <li><span class="dot"></span><span>art. 6 ust. 1 lit. b RODO – wykonanie umowy lub działania przed jej zawarciem,</span></li>
+          <li><span class="dot"></span><span>art. 6 ust. 1 lit. c RODO – obowiązek prawny administratora,</span></li>
+          <li><span class="dot"></span><span>art. 6 ust. 1 lit. f RODO – prawnie uzasadniony interes administratora.</span></li>
+        </ul>
+
+        <h2 class="h2">Odbiorcy danych</h2>
+        <p class="p">Dane osobowe mogą być przekazywane podmiotom współpracującym z administratorem, w szczególności:</p>
+        <ul class="bullets">
+          <li><span class="dot"></span><span>dostawcom usług hostingowych,</span></li>
+          <li><span class="dot"></span><span>dostawcom usług IT,</span></li>
+          <li><span class="dot"></span><span>dostawcom narzędzi analitycznych (np. Google Analytics),</span></li>
+          <li><span class="dot"></span><span>podmiotom księgowym.</span></li>
+        </ul>
+        <p class="p">Dane nie są sprzedawane ani udostępniane osobom trzecim w celach marketingowych.</p>
+
+        <h2 class="h2">Przekazywanie danych poza UE</h2>
+        <p class="p">W przypadku korzystania z narzędzi takich jak Google Analytics dane mogą być przekazywane do państw trzecich (np. USA) na podstawie standardowych klauzul umownych (SCC) zgodnie z art. 46 RODO.</p>
+
+        <h2 class="h2">Okres przechowywania danych</h2>
+        <p class="p">
+          Dane osobowe przechowywane są:
+        </p>
+        <ul class="bullets">
+          <li><span class="dot"></span><span>przez czas trwania korespondencji,</span></li>
+          <li><span class="dot"></span><span>przez czas realizacji umowy</span></li>
+          <li><span class="dot"></span><span>przez okres wymagany przepisami prawa (np. dane księgowe – 5 lat),</span></li>
+          <li><span class="dot"></span><span>dane analityczne – zgodnie z ustawieniami narzędzi analitycznych.</span></li>
+        </ul>
+
+        <h2 class="h2">Prawa użytkownika</h2>
+        <p class="p">
+          Użytkownik ma prawo do:
+        </p>
+        <ul class="bullets">
+          <li><span class="dot"></span><span>dostępu do swoich danych,</span></li>
+          <li><span class="dot"></span><span>ich sprostowania,</span></li>
+          <li><span class="dot"></span><span>usunięcia danych,</span></li>
+          <li><span class="dot"></span><span>ograniczenia przetwarzania,</span></li>
+          <li><span class="dot"></span><span>przenoszenia danych,</span></li>
+          <li><span class="dot"></span><span>wniesienia sprzeciwu,</span></li>
+          <li><span class="dot"></span><span>cofnięcia zgody w dowolnym momencie,</span></li>
+          <li><span class="dot"></span><span>wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO).</span></li>
+        </ul>
+
+        <h2 class="h2">Bezpieczeństwo danych</h2>
+        <p class="p">
+        Administrator stosuje odpowiednie środki techniczne i organizacyjne w celu ochrony danych osobowych przed ich utratą, nieuprawnionym dostępem lub naruszeniem.
+        </p>
+
+        <h2 class="h2">Zmiany polityki prywatności</h2>
+        <p class="p">
+        Administrator zastrzega sobie prawo do wprowadzania zmian w niniejszej Polityce prywatności. Aktualna wersja dokumentu jest zawsze dostępna na stronie internetowej.
+        </p>
+
+      `,
+      en: `
+        <h2 class="h2">General Information</h2>
+<p class="p">This Privacy Policy sets out the rules for processing the personal data of users of the inki-graphics.com website.</p>
+<p class="p">The data controller is:</p>
+<p class="p"><strong>Ina Kabiak - Inki Graphics</strong></p>
+<p class="p">A sole proprietorship registered in Poland</p>
+<p class="p"><strong>Contact email:</strong> contact@inki-graphics.com</p>
+<p class="p">The Controller processes personal data in accordance with applicable laws, in particular Regulation (EU) 2016/679 of the European Parliament and of the Council (GDPR).</p>
+
+<h2 class="h2">Scope of Processed Data</h2>
+<p class="p">
+  The Controller may process the following personal data:
+</p>
+<ul class="bullets">
+  <li><span class="dot"></span><span>first and last name (if provided),</span></li>
+  <li><span class="dot"></span><span>email address,</span></li>
+  <li><span class="dot"></span><span>the content of the message sent via the contact form or email,</span></li>
+  <li><span class="dot"></span><span>IP address,</span></li>
+  <li><span class="dot"></span><span>data contained in cookies,</span></li>
+  <li><span class="dot"></span><span>technical data about the device and browser.</span></li>
+</ul>
+<p class="p">Providing data is voluntary, but necessary to contact the Controller or handle an inquiry.</p>
+
+<h2 class="h2">Purposes of Data Processing</h2>
+<p class="p">
+  Personal data is processed for the following purposes:
+</p>
+<ul class="bullets">
+  <li><span class="dot"></span><span>responding to inquiries submitted by the user,</span></li>
+  <li><span class="dot"></span><span>performing cooperation or a contract,</span></li>
+  <li><span class="dot"></span><span>conducting correspondence,</span></li>
+  <li><span class="dot"></span><span>analyzing website statistics,</span></li>
+  <li><span class="dot"></span><span>ensuring the proper functioning of the website,</span></li>
+  <li><span class="dot"></span><span>fulfilling legal obligations (e.g., accounting).</span></li>
+</ul>
+
+<h2 class="h2">Legal Basis for Data Processing</h2>
+<p class="p">
+  Personal data is processed on the basis of:
+</p>
+<ul class="bullets">
+  <li><span class="dot"></span><span>Article 6(1)(a) GDPR — the user’s consent,</span></li>
+  <li><span class="dot"></span><span>Article 6(1)(b) GDPR — performance of a contract or taking steps prior to entering into a contract,</span></li>
+  <li><span class="dot"></span><span>Article 6(1)(c) GDPR — compliance with a legal obligation of the Controller,</span></li>
+  <li><span class="dot"></span><span>Article 6(1)(f) GDPR — the Controller’s legitimate interests.</span></li>
+</ul>
+
+<h2 class="h2">Data Recipients</h2>
+<p class="p">Personal data may be transferred to entities cooperating with the Controller, in particular:</p>
+<ul class="bullets">
+  <li><span class="dot"></span><span>hosting service providers,</span></li>
+  <li><span class="dot"></span><span>IT service providers,</span></li>
+  <li><span class="dot"></span><span>analytics tool providers (e.g., Google Analytics),</span></li>
+  <li><span class="dot"></span><span>accounting service providers.</span></li>
+</ul>
+<p class="p">Data is not sold or shared with third parties for marketing purposes.</p>
+
+<h2 class="h2">Transfers of Data Outside the EU</h2>
+<p class="p">When using tools such as Google Analytics, data may be transferred to third countries (e.g., the United States) based on Standard Contractual Clauses (SCC) in accordance with Article 46 GDPR.</p>
+
+<h2 class="h2">Data Retention Period</h2>
+<p class="p">
+  Personal data is stored:
+</p>
+<ul class="bullets">
+  <li><span class="dot"></span><span>for the duration of correspondence,</span></li>
+  <li><span class="dot"></span><span>for the duration of the contract performance,</span></li>
+  <li><span class="dot"></span><span>for the period required by law (e.g., accounting data — 5 years),</span></li>
+  <li><span class="dot"></span><span>analytics data — in accordance with the settings of analytics tools.</span></li>
+</ul>
+
+<h2 class="h2">User Rights</h2>
+<p class="p">
+  The user has the right to:
+</p>
+<ul class="bullets">
+  <li><span class="dot"></span><span>access their data,</span></li>
+  <li><span class="dot"></span><span>rectify it,</span></li>
+  <li><span class="dot"></span><span>erase the data,</span></li>
+  <li><span class="dot"></span><span>restrict processing,</span></li>
+  <li><span class="dot"></span><span>data portability,</span></li>
+  <li><span class="dot"></span><span>object to processing,</span></li>
+  <li><span class="dot"></span><span>withdraw consent at any time,</span></li>
+  <li><span class="dot"></span><span>lodge a complaint with the President of the Personal Data Protection Office (UODO).</span></li>
+</ul>
+
+<h2 class="h2">Data Security</h2>
+<p class="p">
+  The Controller applies appropriate technical and organizational measures to protect personal data against loss, unauthorized access, or breaches.
+</p>
+
+<h2 class="h2">Changes to the Privacy Policy</h2>
+<p class="p">
+  The Controller reserves the right to make changes to this Privacy Policy. The current version of the document is always available on the website.
+</p>
+      `
+    };
+
+    const lang = localStorage.getItem("inki_lang") || "pl";
+    document.getElementById("legalContent").innerHTML = legal[lang] || legal.pl;
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

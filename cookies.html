@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cookies — Inki Graphics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+</head>
+
+<body data-page="cookies">
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand-mini" href="index.html" aria-label="Inki Graphics">
+        <span class="brand-mini__mark" aria-hidden="true"></span>
+        <span class="brand-mini__text">INKI GRAPHICS</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html#portfolio" data-nav="nav_portfolio"></a>
+        <a href="index.html#pricing" data-nav="nav_pricing"></a>
+        <a href="index.html#contact" data-nav="nav_contact"></a>
+      </nav>
+
+      <div class="lang-switch">
+        <span class="lang-pill">PL / EN</span>
+        <button class="lang-btn" id="langBtn" type="button">LANG</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="card hero__left">
+        <h1 class="h1" style="margin-bottom:6px" data-legal-title>Cookies</h1>
+
+        <div id="legalContent"></div>
+
+        <div class="legal-links" style="margin-top:18px">
+          <a href="index.html">← Home</a>
+          <a href="privacy.html" data-i18n="legal_privacy"></a>
+          <a href="terms.html" data-i18n="legal_terms"></a>
+          <a href="#" data-open-cookie-settings data-i18n="footer_cookie_settings"></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Cookie banner + settings modal -->
+  <div class="cookie" id="cookieBanner" aria-live="polite">
+    <div class="cookie__panel">
+      <div class="cookie__row">
+        <div>
+          <p class="cookie__title" data-cookie-title></p>
+          <p class="cookie__text" data-cookie-text></p>
+        </div>
+        <div class="cookie__actions">
+          <button class="btn btn-primary" id="cookieAccept" type="button" data-cookie-accept></button>
+          <button class="btn btn-ghost" id="cookieNecessary" type="button" data-cookie-necessary></button>
+          <button class="btn btn-ghost" id="cookieSettings" type="button" data-cookie-settings></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cookieSettingsModal" data-modal aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__panel" role="document">
+      <div class="modal__head">
+        <div class="modal__title" data-cookie-settings-title></div>
+        <button class="modal__close" id="cookieSettingsClose" type="button" data-i18n="modal_close"></button>
+      </div>
+      <div class="modal__body">
+        <div class="toggles">
+          <div class="toggle">
+            <div>
+              <div data-toggle-necessary-label></div>
+              <small data-toggle-necessary-desc></small>
+            </div>
+            <div class="switch">
+              <input type="checkbox" checked disabled />
+            </div>
+          </div>
+
+          <div class="toggle">
+            <div>
+              <div data-toggle-analytics-label></div>
+              <small data-toggle-analytics-desc></small>
+            </div>
+            <div class="switch">
+              <input id="toggleAnalytics" type="checkbox" />
+            </div>
+          </div>
+
+          <div class="toggle">
+            <div>
+              <div data-toggle-marketing-label></div>
+              <small data-toggle-marketing-desc></small>
+            </div>
+            <div class="switch">
+              <input id="toggleMarketing" type="checkbox" />
+            </div>
+          </div>
+        </div>
+
+        <hr class="sep">
+        <button class="btn btn-primary" id="cookieSaveBtn" type="button" data-cookie-save></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.__LEGAL = {
+      pl: `
+        <h2 class="h2">Informacje ogólne</h2>
+        <p class="p">
+          Strona internetowa <strong>inki-graphics.com</strong> wykorzystuje pliki cookies w celu zapewnienia prawidłowego działania strony oraz analizy statystyk.
+          Cookies to niewielkie pliki tekstowe zapisywane na urządzeniu użytkownika.
+        </p>
+
+        <h2 class="h2">Rodzaje cookies</h2>
+        <ul class="bullets">
+          <li><span class="dot"></span><span><strong>Niezbędne</strong> — wymagane do działania strony (np. zapamiętanie wyboru języka i zgody cookies). Zapewniają prawidłowe funkcjonowanie strony i nie wymagają zgody użytkownika.</span></li>
+          <li><span class="dot"></span><span><strong>Analityczne</strong> — służą do analizy statystyk odwiedzin (np. Google Analytics). Stosowane wyłącznie po wyrażeniu zgody przez użytkownika.</span></li>
+          <li><span class="dot"></span><span><strong>Marketingowe</strong> — <strong>Meta Pixel</strong>mogą być stosowane w celach marketingowych wyłącznie po uzyskaniu zgody.</span></li>
+        </ul>
+
+        <h2 class="h2">Okres przechowywania cookies</h2>
+        <p class="p">Cookies mogą być:</p>
+        <ul class="bullets">
+          <li><span class="dot"></span><span><strong>Sesyjnee</strong> – usuwane po zamknięciu przeglądarki.</span></li>
+          <li><span class="dot"></span><span><strong>Stałe</strong> – przechowywane przez określony czas.</span></li>
+        </ul>
+
+        <h2 class="h2">Zarządzanie cookies</h2>
+        <p class="p">
+          Użytkownik może w każdej chwili zmienić ustawienia cookies za pomocą ustawień przeglądarki internetowej lub poprzez baner cookies na stronie. Ograniczenie stosowania cookies może wpłynąć na funkcjonalność strony.
+        </p>
+
+        <h2 class="h2">Zmiany polityki cookies</h2>
+        <p class="p">
+          Administrator zastrzega sobie prawo do wprowadzania zmian w niniejszej Polityce cookies.
+        </p>
+
+        <h2 class="h2">Administrator</h2>
+        <p class="p">
+          Ina Kabiak — Inki Graphics (JDG), NIP 5243009618, REGON 542196495.</p>
+          <p class="p">E-mail: <a href="mailto:contact@inki-graphics.com">contact@inki-graphics.com</a>.</p>
+          <p class="p"><br><span class="small">Adres JDG: Władysława Pytlasińskiego 16 lok. 13, 00-777 Warszawa</span>
+        </p>
+      `,
+      en: `
+        <h2 class="h2">General Information</h2>
+<p class="p">
+  The website <strong>inki-graphics.com</strong> uses cookies to ensure the proper functioning of the site and to analyze traffic statistics.
+  Cookies are small text files stored on the user’s device.
+</p>
+
+<h2 class="h2">Types of Cookies</h2>
+<ul class="bullets">
+  <li><span class="dot"></span><span><strong>Necessary</strong> — required for the website to function properly (e.g., remembering the language selection and cookie consent). They ensure the proper operation of the site and do not require the user’s consent.</span></li>
+  <li><span class="dot"></span><span><strong>Analytics</strong> — used to analyze visit statistics (e.g., Google Analytics). Used only after the user has given consent.</span></li>
+  <li><span class="dot"></span><span><strong>Marketing</strong> — <strong>Meta Pixel</strong> may be used for marketing purposes only after consent has been obtained.</span></li>
+</ul>
+
+<h2 class="h2">Cookie Retention Period</h2>
+<p class="p">Cookies may be:</p>
+<ul class="bullets">
+  <li><span class="dot"></span><span><strong>Session cookies</strong> — deleted when the browser is closed.</span></li>
+  <li><span class="dot"></span><span><strong>Persistent cookies</strong> — stored for a specified period of time.</span></li>
+</ul>
+
+<h2 class="h2">Managing Cookies</h2>
+<p class="p">
+  The user may change cookie settings at any time via their web browser settings or through the cookie banner on the website.
+  Restricting the use of cookies may affect the functionality of the website.
+</p>
+
+<h2 class="h2">Changes to the Cookie Policy</h2>
+<p class="p">
+  The Administrator reserves the right to make changes to this Cookie Policy.
+</p>
+
+<h2 class="h2">Administrator</h2>
+<p class="p">
+  Ina Kabiak — Inki Graphics (JDG), NIP 5243009618, REGON 542196495.
+</p>
+<p class="p">
+  E-mail: <a href="mailto:contact@inki-graphics.com">contact@inki-graphics.com</a>.
+</p>
+<p class="p">
+  <br><span class="small">JDG address: Władysława Pytlasińskiego 16, Apt. 13, 00-777 Warsaw</span>
+</p>
+`, 
+
+    };
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

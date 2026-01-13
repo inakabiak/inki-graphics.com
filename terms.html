@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Regulamin — Inki Graphics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+</head>
+
+<body data-page="terms">
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand-mini" href="index.html" aria-label="Inki Graphics">
+        <span class="brand-mini__mark" aria-hidden="true"></span>
+        <span class="brand-mini__text">INKI GRAPHICS</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html#portfolio" data-nav="nav_portfolio"></a>
+        <a href="index.html#pricing" data-nav="nav_pricing"></a>
+        <a href="index.html#contact" data-nav="nav_contact"></a>
+      </nav>
+
+      <div class="lang-switch">
+        <span class="lang-pill">PL / EN</span>
+        <button class="lang-btn" id="langBtn" type="button">LANG</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="card hero__left">
+        <h1 class="h1" style="margin-bottom:6px" data-legal-title>Regulamin</h1>
+
+
+
+        <div id="legalContent"></div>
+
+        <div class="legal-links" style="margin-top:18px">
+          <a href="index.html">← Home</a>
+          <a href="privacy.html" data-i18n="legal_privacy"></a>
+          <a href="cookies.html" data-i18n="legal_cookies"></a>
+          <a href="#" data-open-cookie-settings data-i18n="footer_cookie_settings"></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Cookie Banner -->
+  <div class="cookie" id="cookieBanner" aria-live="polite">
+    <div class="cookie__panel">
+      <div class="cookie__row">
+        <div>
+          <p class="cookie__title" data-cookie-title></p>
+          <p class="cookie__text" data-cookie-text></p>
+        </div>
+        <div class="cookie__actions">
+          <button class="btn btn-primary" id="cookieAccept" type="button" data-cookie-accept></button>
+          <button class="btn btn-ghost" id="cookieNecessary" type="button" data-cookie-necessary></button>
+          <button class="btn btn-ghost" id="cookieSettings" type="button" data-cookie-settings></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cookieSettingsModal" data-modal aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__panel" role="document">
+      <div class="modal__head">
+        <div class="modal__title" data-cookie-settings-title></div>
+        <button class="modal__close" id="cookieSettingsClose" type="button" data-i18n="modal_close"></button>
+      </div>
+      <div class="modal__body">
+        <div class="toggles">
+          <div class="toggle">
+            <div>
+              <div data-toggle-necessary-label></div>
+              <small data-toggle-necessary-desc></small>
+            </div>
+            <div class="switch">
+              <input type="checkbox" checked disabled />
+            </div>
+          </div>
+
+          <div class="toggle">
+            <div>
+              <div data-toggle-analytics-label></div>
+              <small data-toggle-analytics-desc></small>
+            </div>
+            <div class="switch">
+              <input id="toggleAnalytics" type="checkbox" />
+            </div>
+          </div>
+
+          <div class="toggle">
+            <div>
+              <div data-toggle-marketing-label></div>
+              <small data-toggle-marketing-desc></small>
+            </div>
+            <div class="switch">
+              <input id="toggleMarketing" type="checkbox" />
+            </div>
+          </div>
+        </div>
+
+        <hr class="sep">
+        <button class="btn btn-primary" id="cookieSaveBtn" type="button" data-cookie-save></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.__LEGAL = {
+      pl: `
+        <h2 class="h2">1. Dane usługodawcy</h2>
+        <p class="p">
+          Usługodawcą jest <strong>Ina Kabiak — Inki Graphics (JDG)</strong>, NIP 5243009618, REGON 542196495.</p>
+          <p class="p">Kontakt: <a href="mailto:contact@inki-graphics.com">contact@inki-graphics.com</a>.</p>
+          <p class="p"><br><span class="small">Adres JDG: Władysława Pytlasińskiego 16 lok. 13,00-777 Warszawa</span>
+        </p>
+
+        <h2 class="h2">2. Zakres usług</h2>
+        <p class="p">
+          Wykonuję projekty graficzne na potrzeby sprzedaży na Amazon, w szczególności: <strong>Listing Images</strong>,
+          <strong>Content A+ Basic</strong>, <strong>Content A+ Premium</strong>, <strong>Brand Story</strong>,
+          a także <strong>rendery 3D</strong> (samodzielnie lub jako uzupełnienie materiałów).
+        </p>
+
+        <h2 class="h2">3. Składanie zamówienia</h2>
+        <ul class="bullets">
+          <li><span class="dot"></span><span>Klient przesyła brief (formularz PL/EN) oraz materiały (logo, zdjęcia, teksty).</span></li>
+          <li><span class="dot"></span><span>Otrzymujesz wycenę i harmonogram mailowo.</span></li>
+          <li><span class="dot"></span><span>Start prac następuje po akceptacji wyceny i ustaleń mailowych.</span></li>
+        </ul>
+
+        <h2 class="h2">4. Terminy realizacji</h2>
+        <p class="p">
+          Standardowy czas realizacji: <strong>do 2 tygodni</strong> (w zależności od zakresu, kolejki oraz kompletności materiałów).
+        </p>
+
+        <h2 class="h2">5. Poprawki</h2>
+        <p class="p">
+          W cenie są <strong>2 rundy poprawek</strong>. Poprawki po drugiej rundzie: <strong>15 zł</strong> (zgodnie z cennikiem).
+        </p>
+
+        <h2 class="h2">6. Cennik (dla stałych klientów od 3. zamówienia)</h2>
+        <ul class="bullets">
+          <li><span class="dot"></span><span>Listing Images: <strong>50 zł / 1 grafika</strong></span></li>
+          <li><span class="dot"></span><span>Content A+ Basic (5 grafik): <strong>400 zł</strong></span></li>
+          <li><span class="dot"></span><span>Content A+ Premium (7 grafik + wersja mobilna): <strong>680 zł</strong></span></li>
+          <li><span class="dot"></span><span>Brand Story (5 grafik): <strong>400 zł</strong></span></li>
+          <li><span class="dot"></span><span>Tłumaczenie tekstów (grafika): <strong>10 zł</strong></span></li>
+        </ul>
+        <p class="p">
+          Cennik ma charakter informacyjny. Dokładna wycena zależy od zakresu i ustaleń.
+        </p>
+
+        <h2 class="h2">7. Dostarczenie plików</h2>
+        <p class="p">
+          Pliki dostarczam w formatach uzgodnionych mailowo (np. JPG/PNG/PDF). Materiały są przygotowane do wdrożenia na Amazon.
+        </p>
+
+        <h2 class="h2">8. Prawa autorskie i wykorzystanie</h2>
+        <p class="p">
+          Klient otrzymuje prawo do wykorzystania dostarczonych materiałów w celu sprzedaży/marketingu produktów (Amazon i kanały powiązane).
+          Jeśli Klient nie życzy sobie publikacji prac w portfolio, proszę o informację mailową (opt-out).
+        </p>
+
+        <h2 class="h2">9. Reklamacje i kontakt</h2>
+        <p class="p">
+          Wszelkie uwagi i reklamacje przyjmuję mailowo: <a href="mailto:inkigraphicswithlove@gmail.com">inkigraphicswithlove@gmail.com</a>.
+        </p>
+
+        <h2 class="h2">10. Postanowienia końcowe</h2>
+        <p class="p">
+          Regulamin obowiązuje od dnia publikacji na stronie. W sprawach nieuregulowanych zastosowanie mają odpowiednie przepisy prawa polskiego.
+        </p>
+      `,
+      en: `
+        <h2 class="h2">1. Service Provider Details</h2>
+        <p class="p">
+  The service provider is <strong>Ina Kabiak — Inki Graphics (JDG)</strong>, NIP 5243009618, REGON 542196495.
+</p>
+<p class="p">
+  Contact: <a href="mailto:contact@inki-graphics.com">contact@inki-graphics.com</a>.
+</p>
+<p class="p">
+  <br><span class="small">JDG address: Władysława Pytlasińskiego 16, Apt. 13, 00-777 Warsaw</span>
+</p>
+
+<h2 class="h2">2. Scope of Services</h2>
+<p class="p">
+  I provide graphic design services for Amazon sales, in particular: <strong>Listing Images</strong>,
+  <strong>A+ Content Basic</strong>, <strong>A+ Content Premium</strong>, <strong>Brand Story</strong>,
+  as well as <strong>3D renders</strong> (either as standalone services or as a supplement to the materials).
+</p>
+
+<h2 class="h2">3. Placing an Order</h2>
+<ul class="bullets">
+  <li><span class="dot"></span><span>The Client submits a brief (PL/EN form) and materials (logo, photos, text).</span></li>
+  <li><span class="dot"></span><span>You will receive a quote and timeline by email.</span></li>
+  <li><span class="dot"></span><span>Work starts after the quote and email arrangements are approved.</span></li>
+</ul>
+
+<h2 class="h2">4. Delivery Time</h2>
+<p class="p">
+  Standard turnaround time: <strong>up to 2 weeks</strong> (depending on the scope, queue, and completeness of the materials provided).
+</p>
+
+<h2 class="h2">5. Revisions</h2>
+<p class="p">
+  The price includes <strong>2 rounds of revisions</strong>. Revisions after the second round: <strong>15 PLN</strong> (in accordance with the price list).
+</p>
+
+<h2 class="h2">6. Price List (for returning clients from the 3rd order)</h2>
+<ul class="bullets">
+  <li><span class="dot"></span><span>Listing Images: <strong>50 PLN / 1 graphic</strong></span></li>
+  <li><span class="dot"></span><span>A+ Content Basic (5 graphics): <strong>400 PLN</strong></span></li>
+  <li><span class="dot"></span><span>A+ Content Premium (7 graphics + mobile version): <strong>680 PLN</strong></span></li>
+  <li><span class="dot"></span><span>Brand Story (5 graphics): <strong>400 PLN</strong></span></li>
+  <li><span class="dot"></span><span>Text translation (for graphics): <strong>10 PLN</strong></span></li>
+</ul>
+<p class="p">
+  The price list is for informational purposes only. The final quote depends on the scope and specific arrangements.
+</p>
+
+<h2 class="h2">7. File Delivery</h2>
+<p class="p">
+  Files are delivered in formats agreed by email (e.g., JPG/PNG/PDF). The materials are prepared for implementation on Amazon.
+</p>
+
+<h2 class="h2">8. Copyright and Use</h2>
+<p class="p">
+  The Client is granted the right to use the delivered materials for the purpose of selling/marketing products (Amazon and related channels).
+  If the Client does not want the work to be published in my portfolio, please let me know by email (opt-out).
+</p>
+
+<h2 class="h2">9. Complaints and Contact</h2>
+<p class="p">
+  Any comments and complaints are accepted by email: <a href="mailto:contact@inki-graphics.com">contact@inki-graphics.com</a>.
+</p>
+
+<h2 class="h2">10. Final Provisions</h2>
+<p class="p">
+  These Terms and Conditions are effective from the date of publication on the website. In matters not covered herein, the relevant provisions of Polish law shall apply.
+</p>
+`,
+
+    };
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
