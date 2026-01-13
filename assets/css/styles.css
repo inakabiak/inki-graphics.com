@@ -197,7 +197,7 @@ img{max-width:100%; display:block}
 
 .hero__left{
   margin: 200px 0 0;
-  padding:0px 0px 50px 50px}
+  padding:0px 50px 50px 50px}
 .hero__right{padding:18px}
 
 
@@ -811,6 +811,7 @@ img, svg, video{
     font-family: "Bruno Ace SC", ui-sans-serif, system-ui;
     letter-spacing: .06em;
     color: #e8e8e8;
+    line-height: 1.2;
 }
 
 .modal__panel{
