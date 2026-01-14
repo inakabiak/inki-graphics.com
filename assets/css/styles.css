@@ -301,10 +301,10 @@ img{max-width:100%; display:block}
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-align: left;
     gap: 10px;
     padding: 16px 18px;
     border-radius: 16px;
-    font-size: 20px;
     line-height: 1;
     transition: transform .12s ease, border-color .12s ease, background .12s ease;
     user-select: none;
@@ -320,6 +320,7 @@ img{max-width:100%; display:block}
 }
 .btn-primary:hover{border-color: rgba(255,107,211,.65)}
 .btn-ghost{
+  font-family: "Bruno Ace SC", ui-sans-serif, system-ui;
   background:rgb(18 18 18);
   border:1px solid rgba(255,255,255,.12);
   color: rgba(232,232,232,.86);
@@ -607,7 +608,7 @@ img{max-width:100%; display:block}
   border:1px solid rgba(255,255,255,.14);
   background: linear-gradient(180deg, rgba(18,18,22,.92), rgba(10,10,12,.92));
   box-shadow: var(--shadow);
-  padding:14px;
+  padding:14px 40px;
 }
 .cookie__row{
   display:flex;
@@ -620,21 +621,22 @@ img{max-width:100%; display:block}
 }
 .cookie__title{
   font-family:"Bruno Ace SC";
-  font-size:12px;
+  font-size:30px;
   letter-spacing:.08em;
-  margin:0 0 6px;
+  margin:25px 0 15px;
 }
 .cookie__text{
   margin:0;
-  font-size:12px;
+  font-size:20px;
   line-height:1.6;
-  color: rgba(232,232,232,.74);
+  color: rgb(219 219 219 / 62%);
 }
 .cookie__actions{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
   margin-top:10px;
+  justify-content: center;
 }
 
 .toggles{

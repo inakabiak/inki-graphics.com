@@ -65,8 +65,8 @@ const I18N = {
 
     cookie_title: "Cookies i prywatność",
     cookie_text:
-      "Używam plików cookies. Niezbędne cookies są wymagane do działania strony. Analityczne (Google Analytics) i marketingowe (Meta Pixel) uruchamiam dopiero po Twojej zgodzie.",
-    cookie_accept: "Akceptuj",
+      "-- używamy plików cookies. Niezbędne cookies są wymagane do działania strony. Analityczne i marketingowe uruchamiamy dopiero po Twojej zgodzie.",
+    cookie_accept: "Akceptuj wszystkie",
     cookie_necessary: "Akceptuj tylko niezbędne",
     cookie_settings: "Ustawienia",
     cookie_settings_title: "Ustawienia cookies",
@@ -90,9 +90,9 @@ const I18N = {
     hero_b1: "Brief-based communication — no chaos",
     hero_b2: "Mobile version included",
     hero_b3: "Ready-to-upload Amazon files",
-    cta_brief_pl: "Brief (PL)",
-    cta_brief_en: "Brief (EN)",
-    cta_email: "Email me",
+    cta_brief_pl: "BRIEF PO POLSKU",
+    cta_brief_en: "BRIEF IN ENGLISH",
+    cta_email: "EMAIL ME",
 
     banner_hint_left: "Animated banner placeholder 21:9",
     banner_hint_right: "GIF loads only when visible",
@@ -144,7 +144,7 @@ const I18N = {
     cookie_title: "Cookies & privacy",
     cookie_text:
       "This site uses cookies. Necessary cookies are required for the site to function. Analytics (Google Analytics) and marketing (Meta Pixel) are enabled only after your consent.",
-    cookie_accept: "Accept",
+    cookie_accept: "Accept all",
     cookie_necessary: "Accept necessary only",
     cookie_settings: "Settings",
     cookie_settings_title: "Cookie settings",
