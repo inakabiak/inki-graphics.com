@@ -315,6 +315,44 @@
     document.getElementById("legalContent").innerHTML = legal[lang] || legal.pl;
   </script>
 
+  <script>
+  const KEY = "inki_lang";
+
+  function normalizeLang(v) {
+    v = (v || "pl").toLowerCase();
+    return v.startsWith("en") ? "en" : "pl";
+  }
+
+  function renderLegal(lang) {
+    const l = normalizeLang(lang);
+
+    // legal content
+    document.getElementById("legalContent").innerHTML = legal[l] || legal.pl;
+
+    // h1 + title (чтобы визуально было понятно)
+    const h1 = document.querySelector("[data-legal-title]");
+    if (h1) h1.textContent = (l === "en") ? "Privacy Policy" : "Polityka prywatności";
+
+    document.title = (l === "en")
+      ? "Privacy Policy — Inki Graphics"
+      : "Polityka prywatności — Inki Graphics";
+
+    document.documentElement.lang = l;
+  }
+
+  // initial render
+  renderLegal(localStorage.getItem(KEY));
+
+  // toggle
+  document.getElementById("langBtn")?.addEventListener("click", () => {
+    const current = normalizeLang(localStorage.getItem(KEY));
+    const next = (current === "pl") ? "en" : "pl";
+    localStorage.setItem(KEY, next);
+
+    renderLegal(next);
+  });
+</script>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>
