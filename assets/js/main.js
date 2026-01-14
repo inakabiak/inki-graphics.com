@@ -51,7 +51,7 @@ const I18N = {
     footer_regon: "REGON: 542196495",
     footer_email: "E-mail: contact@inki-graphics.com",
     footer_cookie_settings: "Zmień ustawienia cookies",
-    footer_note: "Infografiki tworzę z miłością ❤️ na podstawie zdjęć od klienta lub na bazie renderów 3D.",
+    footer_note: "Infografiki na Amazon tworzę z miłością ❤️ na podstawie zdjęć od klienta lub na bazie renderów 3D.",
 
 
     legal_privacy: "Polityka prywatności",
